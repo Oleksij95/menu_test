@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Заголовок </title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div id="menu">
+    
+      <div class="menu_ref">
+        <ul id="Activity" style="display: none;">
+          <li class="wow" data-wow-delay="0.2s">
+            <a href="#">My Team</a>
+          </li>
+          <li class="wow" data-wow-delay="0.4s">
+            <a href="#">All Activity</a>
+          </li>
+        </ul>
+
+        <ul id="Queue" class="" style="display: none;">
+          <li class="wow" data-wow-delay="0.2s">
+            <a href="#">Create new Issue</a>
+          </li>
+          <li class="wow" data-wow-delay="0.4s">
+            <a href="#">My Open Issue</a>
+          </li>
+
+           <li class="wow" data-wow-delay="0.6s">
+            <a href="#">My Team's Issue</a>
+          </li>
+        </ul>
+
+        <ul id="Chat" class="" style="display: none;">
+          <li class="wow" data-wow-delay="0.2s">
+            <a href="#">New Message</a>
+          </li>
+          <li class="wow" data-wow-delay="0.4s">
+            <a href="#">My Inbox</a>
+          </li>
+          <li class="wow" data-wow-delay="0.6s">
+            <a href="#">Team Chat</a>
+          </li>
+        </ul>
+
+        <ul id="Reports" class="" style="display: none;">
+          <li class="wow" data-wow-delay="0.2s">
+            <a href="#">My Productivity</a>
+          </li>
+          
+          <li class="wow" data-wow-delay="0.4s">
+            <a href="#">Team Tracking</a>
+          </li>
+          <li class="wow" data-wow-delay="0.6s">
+            <a href="#">Coast Analisis</a>
+          </li>
+        </ul>
+
+        <ul id="Settings" class="" style="display: none;">
+          <li class="wow" data-wow-delay="0.2s">
+            <a href="#">My Profile</a>
+          </li>
+          
+          <li class="wow" data-wow-delay="0.4s">
+            <a href="#">Team Settings</a>
+          </li>
+          <li class="wow" data-wow-delay="0.6s">
+            <a href="#">Logout</a>
+          </li>
+        </ul>
+
+
+
+      </div>
+
+      <div class="menu_right_line">
+        <ul>
+          <li data-info_select = "Activity">
+           <i class="fa fa-list-ul"></i>
+           Activity
+         </li>
+         <li data-info_select = "Queue">
+          <i class="fa fa-check-square"></i>
+          Queue
+        </li>
+        <li data-info_select = "Chat">
+          <i class="fa fa-comments"></i>
+        Chat
+      </li>
+        <li data-info_select = "Reports">
+       <i class="fa fa-star"></i>
+        Reports
+      </li>
+        <li data-info_select = "Settings">
+          <i class="fa fa-cog"></i>
+        Settings
+      </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+        </div>
+        <div class="modal-body">
+         <div class="row">
+
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <!-- Include all compiled plugins (below), or include individual files as needed -->
+ <script src="js/bootstrap.min.js"></script>
+ <script src="js/jquery.nicescroll.min.js"></script>
+ <script src="js/wow.min.js"></script>
+ <script>
+ new WOW().init();
+</script>
+<script>
+  $(document).ready(
+    function() {
+      $("html").niceScroll({cursorcolor:"#000"});
+    }
+    );
+  </script>
+
+<script>
+  
+  $(document).click(function(e){
+   var elem = $("#menu");
+    if(e.target!=elem[0] && !elem.has(e.target).length){
+      elem.removeClass("active");
+       $("#menu li").removeClass("active_menu");
+    } 
+  })
+</script>
+
+
+  <script>
+    $("#menu li").on("click", function(){
+      $(this).parents("#menu").addClass("active");
+      $("#menu li").removeClass("active_menu");
+      $(this).addClass("active_menu");
+
+      var select_tab = $(this).attr("data-info_select");
+       // $(".menu_ref ul").addClass("hidden");
+                    
+       
+       $("#"+select_tab + " li").addClass("fadeInLeft");
+
+      
+        $(".menu_ref ul").fadeOut(0);
+        $(".menu_ref #"+select_tab).fadeIn(200);
+
+        console.log($(".menu_ref #"+select_tab));
+     
+       
+    });
+  </script>
+
+
+  <script>
+    function windowSize(){
+    if ($(window).width() <= '768'){
+        $('#shelf').show(10);
+    } else {
+        $('#shelf').hide(10);
+    }
+}
+  </script>
+</body>
+</html>
