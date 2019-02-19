@@ -115,6 +115,33 @@
   </div>
 
 
+<!-- 
+  <section id="salii_test">
+    <div>
+      <ul>
+        <li>
+          <font color="red">New</font>
+          <a href="#"></a>
+        </li>
+        <li>
+          <font color="blue">New</font>
+          <a href="#"></a>
+        </li>
+
+        <li>
+          <font color="red">New</font>
+          <a href="#"></a>
+        </li>
+
+      </ul>
+    </div>
+  </section> -->
+
+
+
+
+
+
   <!-- Modal -->
   <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -149,6 +176,7 @@
     );
   </script>
 
+
 <script>
   
   $(document).click(function(e){
@@ -166,32 +194,13 @@
       $(this).parents("#menu").addClass("active");
       $("#menu li").removeClass("active_menu");
       $(this).addClass("active_menu");
-
-      var select_tab = $(this).attr("data-info_select");
-       // $(".menu_ref ul").addClass("hidden");
-                    
-       
-       $("#"+select_tab + " li").addClass("fadeInLeft");
-
-      
-        $(".menu_ref ul").fadeOut(0);
-        $(".menu_ref #"+select_tab).fadeIn(200);
-
-        console.log($(".menu_ref #"+select_tab));
-     
-       
+      var select_tab = $(this).attr("data-info_select");                   
+      $("#"+select_tab + " li").addClass("fadeInLeft");
+      $(".menu_ref ul").fadeOut(0);
+      $(".menu_ref #"+select_tab).fadeIn(200);
     });
   </script>
 
 
-  <script>
-    function windowSize(){
-    if ($(window).width() <= '768'){
-        $('#shelf').show(10);
-    } else {
-        $('#shelf').hide(10);
-    }
-}
-  </script>
 </body>
 </html>
